@@ -1,3 +1,14 @@
+export const DASHBOARD_ROUTES = {
+  overview: "/dashboard",
+  repos: "/dashboard/repos",
+  pullRequest:"/dashboard/pull-request",
+  github: "/dashboard/github",
+  settings: "/dashboard/settings",
+} as const;
+
+export type DashboardRoute =
+  (typeof DASHBOARD_ROUTES)[keyof typeof DASHBOARD_ROUTES];
+
 export const DASHBOARD_NAV_ITEMS = [
   {
     title: "Overview",
