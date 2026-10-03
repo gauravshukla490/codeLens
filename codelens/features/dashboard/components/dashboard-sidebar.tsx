@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 
 
 import { DASHBOARD_ROUTES } from "@/features/dashboard/lib/routes";
@@ -31,20 +31,14 @@ export function DashboardSidebar({ user, plan = "Pro" }: DashboardSidebarProps) 
           <SidebarMenuItem>
             <SidebarMenuButton
               size="lg"
-              tooltip="ChaiCodeAIReview"
+              tooltip="CodeLens"
               render={
                 <Link href={DASHBOARD_ROUTES.overview}>
-                  <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-none bg-sidebar">
-                    <Image
-                      src="/logo2.svg"
-                      alt=""
-                      width={62}
-                      height={62}
-                      className="object-contain"
-                    />
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                    <MagnifyingGlass weight="bold" className="size-4" />
                   </span>
                   <span className="grid flex-1 text-left leading-tight group-data-[collapsible=icon]:hidden">
-                    <span className="truncate font-medium">ChaiCodeAIReview</span>
+                    <span className="font-display truncate text-lg">CodeLens</span>
                    
                   </span>
                 </Link>
