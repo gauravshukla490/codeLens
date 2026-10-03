@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from "next/image";
+import { Logo } from "@/components/brand/logo";
 import type { Metadata } from 'next';
 import {
   Card,
@@ -19,7 +19,7 @@ import { GithubSignInForm } from '@/features/auth/components/github-sign-in-form
 
 export const metadata: Metadata = {
   title: "Sign in",
-  description: "Sign in to Chai AI Code Reviewer with your GitHub account.",
+  description: "Sign in to CodeLens with your GitHub account.",
 };
 
 type SignInPageProps = {
@@ -30,19 +30,12 @@ type SignInPageProps = {
 const SignInPage = async({searchParams}:SignInPageProps) => {
     const {callbackUrl} = await searchParams;
   return (
-     <Card className="border-border/80 shadow-sm">
+     <Card className="shadow-xl shadow-primary/10">
       <CardHeader className="items-center text-center">
-        <div className="mb-6 flex justify-center pt-2">
-          <Image
-            src="/logo2.svg"
-            alt="Chai AI Code Reviewer"
-            width={172}
-            height={172}
-            priority
-            className="text-foreground"
-          />
+        <div className="mb-4 flex justify-center pt-2">
+          <Logo />
         </div>
-        <CardTitle className="text-base">Welcome back</CardTitle>
+        <CardTitle className="font-display text-2xl">Welcome back</CardTitle>
         <CardDescription>
           Sign in with GitHub to review and manage your code.
         </CardDescription>
