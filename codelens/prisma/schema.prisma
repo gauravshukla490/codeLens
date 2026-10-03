@@ -49,7 +49,7 @@ model PullRequest {
   authorLogin    String?
   headSha        String // latest commit on the PR branch
   baseBranch     String
-  status         String    @default("pending") // pending | processing | reviewed | rate_limited
+  status         String    @default("pending") // pending | processing | reviewed | failed | rate_limited
   reviewComment  String? // AI-generated markdown saved after review completes
   reviewedAt     DateTime?
   createdAt      DateTime  @default(now())
