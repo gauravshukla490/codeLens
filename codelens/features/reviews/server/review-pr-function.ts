@@ -6,7 +6,18 @@ import { postPrComment } from "./post-pr-comment";
 
 
 export const reviewPullRequest = inngest.createFunction(
-    { id: "review-pull-request", triggers: { event: "github/pr.received" } },
+    {
+        id: "review-pull-request",
+        triggers: { event: "github/pr.received" },
+        // Runs after all retries are exhausted so the PR never stays stuck in "processing".
+        onFailure: async ({ event }) => {
+            const pullRequestId = event.data.event.data.pullRequestId as string;
+            await prisma.pullRequest.updateMany({
+                where: { id: pullRequestId },
+                data: { status: "failed" },
+            });
+        },
+    },
     async ({ event, step }) => {
         const pullRequestId = event.data.pullRequestId;
 

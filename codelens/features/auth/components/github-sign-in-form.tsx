@@ -1,8 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { useFormStatus } from "react-dom";
-import { signInWithGithub } from "../actions";
+import { useState } from "react";
+import { authClient } from "@/lib/auth-client";
+import { getSafeCallbackPath } from "../utils";
 
 function GitHubIcon() {
   return (
@@ -12,8 +13,7 @@ function GitHubIcon() {
   );
 }
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
+function SubmitButton({ pending }: { pending: boolean }) {
 
   let buttonLabel = "Continue with GitHub";
   let buttonIcon = <GitHubIcon />;
@@ -43,12 +43,25 @@ type GithubSignInFormProps = {
 };
 
 export function GithubSignInForm({callbackUrl}:GithubSignInFormProps){
+    const [pending, setPending] = useState(false);
+
+    // Sign in from the browser so the OAuth state cookie is set by a normal
+    // response on the same origin GitHub will call back to.
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+      event.preventDefault();
+      setPending(true);
+      const { error } = await authClient.signIn.social({
+        provider: "github",
+        callbackURL: getSafeCallbackPath(callbackUrl),
+      });
+      if (error) {
+        setPending(false);
+      }
+    }
+
     return (
-         <form action={signInWithGithub} className="w-full">
-      {callbackUrl ? (
-        <input type="hidden" name="callbackUrl" value={callbackUrl} />
-      ) : null}
-      <SubmitButton />
-    </form>
+      <form onSubmit={handleSubmit} className="w-full">
+        <SubmitButton pending={pending} />
+      </form>
     )
 }
