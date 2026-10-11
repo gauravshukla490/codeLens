@@ -18,12 +18,17 @@ Install the CodeLens GitHub App on a repository, open a pull request, and CodeLe
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)
 
 <!-- TODO: add live demo link → [**Live demo**](https://your-deployment.vercel.app) · -->
-[Features](#-features) · [How it works](#-how-it-works) · [Getting started](#-getting-started) · [Roadmap](#-roadmap)
+[Features](#-features) · [Screenshots](#-screenshots) · [How it works](#-how-it-works) · [Getting started](#-getting-started) · [Roadmap](#-roadmap)
 
 </div>
 
-<!-- TODO: replace with a real screenshot or GIF of a review comment on a PR -->
-<!-- ![CodeLens reviewing a pull request](docs/screenshots/pr-review.png) -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/home-dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="docs/screenshots/home-light.png" />
+  <img alt="CodeLens home page" src="docs/screenshots/home-light.png" />
+</picture>
+
+<!-- TODO: add a short demo video of CodeLens posting a review on a PR (drag the MP4 here in the GitHub editor) -->
 
 ---
 
@@ -38,8 +43,22 @@ Install the CodeLens GitHub App on a repository, open a pull request, and CodeLe
 - **Dashboard** — sign in with GitHub to see review stats (total, reviewed, in progress, needs attention), every reviewed PR with its full AI review, your connected repositories and their sync status.
 - **Polished UI** — shadcn/ui components, light and dark mode, and a marketing home page.
 
-<!-- TODO: dashboard screenshot -->
-<!-- ![Dashboard overview](docs/screenshots/dashboard.png) -->
+## 📸 Screenshots
+
+**Dashboard overview:** review stats and the latest pull requests at a glance.
+
+![Dashboard overview](docs/screenshots/dashboard.png)
+
+<table>
+  <tr>
+    <td width="50%"><b>Pull requests</b><br/>Every PR CodeLens has received, with author and review status.</td>
+    <td width="50%"><b>Repositories</b><br/>Repositories the GitHub App can review, with branch and language.</td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/pull-requests.png" alt="Pull requests page" /></td>
+    <td><img src="docs/screenshots/repositories.png" alt="Repositories page" /></td>
+  </tr>
+</table>
 
 ## 🧠 How it works
 
@@ -274,4 +293,4 @@ CodeLens deploys cleanly to [Vercel](https://vercel.com):
 | --- | --- |
 | Gaurav Shukla | [@gauravshukla490](https://github.com/gauravshukla490) |
 | Tushar Kumar | [@tushar-41](https://github.com/tushar-41) |
-
+| Rupansh Bhardwaj | <!-- add GitHub handle --> |
