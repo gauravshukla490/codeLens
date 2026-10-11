@@ -293,4 +293,4 @@ CodeLens deploys cleanly to [Vercel](https://vercel.com):
 | --- | --- |
 | Gaurav Shukla | [@gauravshukla490](https://github.com/gauravshukla490) |
 | Tushar Kumar | [@tushar-41](https://github.com/tushar-41) |
-| Rupansh Bhardwaj | <!-- add GitHub handle --> |
+
